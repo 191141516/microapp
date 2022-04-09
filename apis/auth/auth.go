@@ -21,7 +21,7 @@ import (
 )
 
 const (
-	apiCode2Session = "/api/apps/jscode2session"
+	apiJsCode2Session = "/api/apps/v2/jscode2session"
 )
 
 /*
@@ -31,8 +31,8 @@ code2Session
 
 See: https://microapp.bytedance.com/docs/zh-CN/mini-app/develop/server/log-in/code-2-session
 
-POST https://developer.toutiao.com/api/apps/jscode2session
+POST https://developer.toutiao.com/api/apps/v2/jscode2session
 */
 func Code2Session(ctx *microapp.MicroApp, params []byte) (resp []byte, err error) {
-	return ctx.Client.HTTPPost(apiCode2Session, bytes.NewReader(params), "application/json;charset=utf-8")
+	return ctx.Client.HTTPPost(apiJsCode2Session, bytes.NewReader(params), "application/json;charset=utf-8")
 }
