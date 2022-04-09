@@ -14,19 +14,11 @@
 
 package auth_test
 
-import (
-	"fmt"
-	"net/url"
-
-	"github.com/fastwego/microapp"
-	"github.com/fastwego/microapp/apis/auth"
-)
-
 func ExampleCode2Session() {
-	var ctx *microapp.MicroApp
-
-	params := url.Values{}
-	resp, err := auth.Code2Session(ctx, params)
-
-	fmt.Println(resp, err)
+	//var ctx *microapp.MicroApp
+	//
+	//params := url.Values{}
+	//resp, err := auth.Code2Session(ctx, params)
+	//
+	//fmt.Println(resp, err)
 }

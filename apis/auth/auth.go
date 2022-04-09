@@ -16,8 +16,7 @@
 package auth
 
 import (
-	"net/url"
-
+	"bytes"
 	"github.com/fastwego/microapp"
 )
 
@@ -32,10 +31,8 @@ code2Session
 
 See: https://microapp.bytedance.com/docs/zh-CN/mini-app/develop/server/log-in/code-2-session
 
-GET https://developer.toutiao.com/api/apps/jscode2session
+POST https://developer.toutiao.com/api/apps/jscode2session
 */
-func Code2Session(ctx *microapp.MicroApp, params url.Values) (resp []byte, err error) {
-	params.Add("appid", ctx.Config.AppId)
-	params.Add("secret", ctx.Config.AppSecret)
-	return ctx.Client.HTTPGet(apiCode2Session + "?" + params.Encode())
+func Code2Session(ctx *microapp.MicroApp, params []byte) (resp []byte, err error) {
+	return ctx.Client.HTTPPost(apiCode2Session, bytes.NewReader(params), "application/json;charset=utf-8")
 }
